@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Deep Ocean Theme Custom Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #030a16;
+    color: #f1f5f9;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom high-contrast minimalist scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #030a16;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #0f2244;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #38bdf8;
+  }
+}
+
+.smooth-scroll-container {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  will-change: transform;
+}
+
+/* Ambient glow subtle background highlights (deep ocean currents) */
+@keyframes oceanDrift {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(4%, 3%) scale(1.08);
+  }
+}
+
+.animate-ocean-drift {
+  animation: oceanDrift 10s ease-in-out infinite;
+}
+
+/* Gloss Sweep Reflection Effect */
+@keyframes glossSweep {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+  }
+  30% {
+    transform: translateX(150%) skewX(-25deg);
+  }
+  100% {
+    transform: translateX(150%) skewX(-25deg);
+  }
+}
+
+.animate-gloss-sweep {
+  animation: glossSweep 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.glass-morphic {
+  background: linear-gradient(135deg, rgba(10, 25, 50, 0.45) 0%, rgba(3, 10, 22, 0.8) 100%);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+}
+
+.glass-morphic-active {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+/* Ocean Grid Pattern */
+.bg-ocean-grid {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.015) 1px, transparent 1px);
+}
+
